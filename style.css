@@ -1,0 +1,144 @@
+/* ========== BODY ========== */
+body {
+  font-family: 'Arial', sans-serif;
+  background: url('BG1.png') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ========== INPUT TEXT ========== */
+input {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px;
+  font-size: 18px;
+  background: white;
+  border: 2px solid #aaa;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #888;
+  z-index: 1000;
+}
+
+/* ========== LAYOUT UTAMA ========== */
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  width: 100%;
+  margin-top: 80px;
+  position: relative;
+  gap: 40px;
+}
+
+.main.fade-out {
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
+  transition: all 0.5s ease;
+}
+
+
+/* ========== KARTU UCAPAN ========== */
+.card {
+  background: white;
+  border: 2px solid #ff69b4;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+  font-size: 18px;
+  color: #e91e63;
+  text-align: center;
+  box-shadow: 0 0 15px pink;
+
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.6s ease;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.card.show {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ========== KONFETI ========== */
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: hsl(var(--hue), 100%, 50%);
+  opacity: 0.8;
+  animation: fall 4s linear infinite;
+}
+
+@keyframes fall {
+  0%   { transform: translateY(-20px) rotate(0); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+/* ========== TOMBOL LIHAT KARTU ========== */
+.corner-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #ff69b4;
+  color: white;
+  padding: 12px 18px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.corner-btn:hover {
+  background: #ff85c1;
+  transform: scale(1.05);
+}
+
+.show-card-btn {
+  display: inline-block;
+  margin: 30px 0;
+  padding: 14px 24px;
+  background-color: #ff69b4;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 12px;
+  text-decoration: none;
+  box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+  transition: all 0.3s ease;
+  z-index: 10;
+  animation: fadeInBtn 1s ease;
+}
+
+.show-card-btn:hover {
+  background-color: #e91e63;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(233, 30, 99, 0.4);
+}
+
+@keyframes fadeInBtn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ========== UTILITAS ========== */
+.hidden {
+  display: none;
+}
